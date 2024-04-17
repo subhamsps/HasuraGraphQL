@@ -1,0 +1,9 @@
+query {
+  artist_by_pk(artist_id: 5) {
+    name
+    albums(order_by: { album_id: asc }) {
+      album_id
+      title
+    }
+  }
+}

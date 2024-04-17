@@ -1,0 +1,15 @@
+mutation {
+  insert_artist(objects: [{ name: "Coldplay" }]) {
+    returning {
+      artist_id
+      name
+    }
+  }
+  insert_album(objects: [{ title: "Paradise", artist_id : artist_id }]) {
+    returning {
+      album_id
+      title
+      artist_id
+    }
+  }
+}

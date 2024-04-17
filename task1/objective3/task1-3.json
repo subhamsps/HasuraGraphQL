@@ -1,0 +1,13 @@
+{
+  "data": {
+    "artist_by_pk": {
+      "name": "Alice In Chains",
+      "albums": [
+        {
+          "album_id": 7,
+          "title": "Facelift"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+Steps to deploy and configure HasuraGraphQL Engine
+
+
+Deploying Hasura GraphQL Engine on Hasura Cloud is straightforward and can be done using the Hasura Cloud Console. Below are the step-by-step instructions to deploy Hasura on Hasura Cloud:
+
+Prerequisites:
+
+- Sign up for a Hasura Cloud account: [Hasura Cloud Signup](https://cloud.hasura.io/signup)
+- Have your PostgreSQL database credentials ready.
+
+Steps to Deploy Hasura on Hasura Cloud:
+
+1. Create a New Project:
+
+- Log in to your [Hasura Cloud Console](https://cloud.hasura.io/).
+- Click on the "Create a New Project" button.
+- Enter your project name and click "Create Project".
+- Select pricing plan, Cloud provider and region
+- Click 'Create new project'
+- Review the configurations and click on Launch Console
+
+2. Add a New Database:
+
+- Once your project is created, click on the "Connect Database" button.
+- Choose the PostgreSQL database option. chose to create a neon serverless postges database as that was the only option available to create a new database.
+- Set-up Chinook dataset on Neon database
+- Enter your PostgreSQL database credentials, i chose Database URL to connect to database.
+- Click "Add Database" to proceed.
+
+
+
+3. Configure Hasura:
+
+- In the Hasura Console, configure your GraphQL schema, authentication providers, permissions, etc.
+- Connect/track tables, track relationships, and set up permissions according to your requirements.
+
+4. Test Your GraphQL API:
+
+- Use the Hasura Console to test your API's
+- Execute queries, mutations, and subscriptions to verify the functionality.

@@ -1,0 +1,7 @@
+query ArtistCount {
+  artist_aggregate(distinct_on: artist_id) {
+    aggregate {
+      count
+    }
+  }
+}

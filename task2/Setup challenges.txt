@@ -1,0 +1,18 @@
+Here's the breakdown of the issues I encountered and how I resolved them during the deployment of Hasura using the provided docker-compose.yaml:
+
+1. Image Version Mismatch: The initial issue I faced was that the image 'graphql-engine:v2.48.2-pro' was not found. To resolve this, I searched for the latest and correct version of the graphql-engine images in the Hasura repository on hub.docker.com. After identifying the correct image version, I updated it in the docker-compose.yaml and successfully deployed Hasura.
+
+2. Container Crashing due to Database Connection: The next challenge was that the `graphql-engine` container was consistently crashing. Upon inspecting the logs, I discovered that it was having trouble connecting to the database. I identified and corrected a password mismatch issue in the environment variables:
+
+   
+   HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres 
+   PG_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
+   
+
+   After making these adjustments, I restarted the deployment, and all containers were up and running as expected.
+
+3. Unable to Access Hasura Console: Even after successfully deploying all containers, I was unable to access the Hasura Console. Initially, I tried changing the port to 8080, suspecting port 80 restrictions on my system might be the cause. However, that didn't resolve the issue. Upon careful examination of the docker-compose.yaml file, I realized that the environment variable `HASURA_GRAPHQL_ENABLE_CONSOLE` needed to be set to `"true"` instead of `"false"`. 
+
+   After correcting this in the yaml file and redeploying, I was able to access the Hasura Console. When prompted for an admin secret, I entered a space since no value was set in the docker-compose.yaml, and this allowed me to log in and access the console successfully.
+
+hope this explanation clarifies the challenges encountered and the solutions implemented during the Hasura deployment.

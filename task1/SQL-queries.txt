@@ -1,0 +1,38 @@
+To retrieve the artist with the most number of albums
+
+
+SELECT a.artist_id, a.name, COUNT(*) as album_count
+FROM artists a
+JOIN albums b ON a.artist_id = b.artist_id
+GROUP BY a.artistid, a.name
+ORDER BY album_count DESC
+LIMIT 1;
+
+
+
+Retrieve the artist with the most number of albums.
+
+
+SELECT g.name AS genre_name, COUNT(t.trackid) AS track_count
+FROM genres g
+JOIN tracks t ON g.genre_id = t.genre_id
+GROUP BY g.name
+ORDER BY track_count DESC
+LIMIT 3;
+
+
+
+Retrieve the top three genres based on the number of tracks associated with each genre.
+
+SELECT 
+    m.name AS media_type,
+    COUNT(t.track_id) AS track_count,
+    AVG(t.milliseconds / 60000.0) AS average_run_time_minutes
+FROM 
+    media_types m
+JOIN 
+    tracks t ON m.media_type_id = t.media_type_id
+GROUP BY 
+    m.name
+ORDER BY 
+    media_type;

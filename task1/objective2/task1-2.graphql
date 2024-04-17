@@ -1,0 +1,14 @@
+query {
+  artist {
+    name
+    albums(order_by: { album_id: asc }) {
+      title
+      tracks_aggregate(limit: 1, order_by: { track_id: asc }) {
+        nodes {
+          name
+        }
+      }
+    }
+  }
+}
+
